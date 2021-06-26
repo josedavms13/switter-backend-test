@@ -2,11 +2,12 @@
   "name": "prototype",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
     "test": "jest .",
-    "testCoverage" : "jest --coverage",
-    "devStart": "nodemon server.js"
+    "testCoverage": "jest --coverage",
+    "devStart": "nodemon src/server.js"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,10 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "mongoose": "^5.12.14"
+    "express-handlebars": "^5.3.2",
+    "firebase-admin": "^9.10.0",
+    "mongoose": "^5.12.14",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "dotenv": "^10.0.0",
