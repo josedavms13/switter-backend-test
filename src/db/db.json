@@ -1,0 +1,142 @@
+{
+  "dogs": [
+    {
+      "id": 0,
+      "name": "Donatella",
+      "owner": "Ana Maria Piñeros",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "extraItems": []
+    },
+    {
+      "id": 1,
+      "name": "Malibu",
+      "owner": "Ana Maria Piñeros",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "extraItems": []
+    },
+    {
+      "id": 2,
+      "name": "Bruno",
+      "owner": "Juan Felipe",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "addedItems": []
+    },
+    {
+      "id": 3,
+      "name": "Abby",
+      "owner": "Juan Felipe",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "addedItems": []
+    },
+    {
+      "id": 4,
+      "name": "Kayser",
+      "owner": "Juan Felipe",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "addedItems": []
+    },
+    {
+      "id": 5,
+      "name": "Sacha",
+      "owner": "Juan Felipe",
+      "state": 0,
+      "recreations": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "price": 50000,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "addedItems": []
+    }
+  ]
+}
