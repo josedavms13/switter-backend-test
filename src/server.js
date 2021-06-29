@@ -1,181 +1,60 @@
-import express, {json} from 'express'
-import mongoose from 'mongoose'
+const getDataFromDB = require('./services/getDataFromDB.js')
+
+
+const express = require('express')
+const cors = require('cors')
+const fs = require('fs')
+const path = require('path')
+require('dotenv').config();
+
 
 const app = express();
-
-app.set('name', 'Switter backend prototype');
-app.set('port', process.env.port || 4550 )
-
-app.use( express.json() )
-
-const dogsObject = {
-    dogs : [{
-        id: 0,
-        name: 'Donatella',
-        owner: 'Ana Maria Piñeros',
-        state : 0,
-        recreations : {
-            price : 50000,
-            daysAmount : 0,
-            dates: [],
-        },
-        training : {
-            price : 50000,
-            daysAmount : 0,
-            dates: [],
-        },
-        kindergarten : {
-            isIn : false,
-            price : 50000,
-            daysAmount : 0,
-            dates: [],
-        },
-        extraItems : []
-    },
-        {
-            id: 1,
-            name: 'Malibu',
-            owner: 'Ana Maria Piñeros',
-            state : 0,
-            numOfRecreations : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            training : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            kindergarten : {
-                isIn : false,
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            addedItems : []
-        },
-        {
-            id: 2,
-            name: 'Bruno',
-            owner: 'Juan Felipe',
-            state : 0,
-            recreations : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            training : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            kindergarten : {
-                isIn : false,
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            addedItems : []
-        },
-        {
-            id: 3,
-            name: 'Abby',
-            owner: 'Juan Felipe',
-            state : 0,
-            recreations : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            training : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            kindergarten : {
-                isIn : false,
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            addedItems : []
-        },
-        {
-            id: 4,
-            name: 'Kayser',
-            owner: 'Juan Felipe',
-            state : 0,
-            recreations : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            training : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            kindergarten : {
-                isIn : false,
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            addedItems : []
-        },
-        {
-            id: 5,
-            name: 'Sacha',
-            owner: 'Juan Felipe',
-            state : 0,
-            recreations : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            training : {
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            kindergarten : {
-                isIn : false,
-                price : 50000,
-                daysAmount : 0,
-                dates: [],
-            },
-            addedItems : []
-        }]
-}
+app.use(express.json());
+app.use(express.urlencoded({extended:false}))
+app.use(cors());
 
 app.get('/', ((req, res) => {
-    res.send('hello world');
+    console.log('sending dogs')
+
+    fs.readFile('./src/db/dogs.json', (error, data)=>{
+        if(error){
+            console.log(error)
+        }
+        else{
+            const dataToSend = JSON.parse(data.toString());
+            res.json(dataToSend.dogs);
+            res.end();
+        }
+    })
 }))
 
-app.get('/dogs' , (req, res)=>{
+app.get('/owner/:id', ((req, res) => {
 
-    res.json(dogsObject);
-})
+    fs.readFile('./src/db/dogs.json', (error, data)=>{
+        if(error){
+            console.log(error)
+        }
+        else{
+            const object = JSON.parse(data.toString());
+            const dogs = (object.dogs);
+            // console.log(dogs)
+            const result = []
+            dogs.forEach((element)=>{
+                if(element.owner.includes('ana')){
+                    result.push(element)
+                }
+            })
+            console.log(result);
 
+        }
+    })
+}))
 
-app.put('/dogs/:id' , ((req, res) => {
-    const id = req.params.id;
-    console.log(id);
+app.post('/update', ((req, res) => {
     console.log(req.body);
-    console.log(Array.isArray(dogsObject.dogs))
-    const indexOfElement = dogsObject.dogs.findIndex(element => element.id === Number(id))
-
-    dogsObject.dogs[indexOfElement].kindergarten.isIn = req.body.isIn;
-    dogsObject.dogs[indexOfElement].addedItems.push(req.body.additionals);
-
-    console.log(dogsObject);
-
-
-    res.json(dogsObject);
+    res.end()
 }))
 
 
-app.listen(app.get('port'),()=>{
-    console.log('started');
-})
+app.listen(process.env.PORT);
+console.log('listening on ', process.env.PORT)

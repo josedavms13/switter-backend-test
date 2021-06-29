@@ -1,0 +1,21 @@
+{
+  "id": 8,
+  "name" : "nala",
+  "owner" : "abraham",
+  "mode" : 0,
+  "state": 0,
+  "recreations": {
+    "daysAmount": 0,
+    "dates": []
+  },
+  "training": {
+    "daysAmount": 0,
+    "dates": []
+  },
+  "kindergarten": {
+    "isIn": false,
+    "daysAmount": 0,
+    "dates": []
+  },
+  "addedItems": []
+}
