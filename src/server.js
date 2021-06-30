@@ -1,5 +1,5 @@
 const getDataFromDB = require('./services/getDataFromDB.js')
-
+const updateDb = require('./services/updateDB.js')
 
 const express = require('express')
 const cors = require('cors')
@@ -13,6 +13,22 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}))
 app.use(cors());
 
+
+let DOGS_OBJECT;
+
+fs.readFile('./src/db/dogs.json', (error, data)=>{
+    if(error){
+        console.log(error)
+    }
+    else{
+        DOGS_OBJECT = JSON.parse(data.toString());
+        DOGS_OBJECT = DOGS_OBJECT.dogs;
+        console.log('Loaded from db')
+
+    }
+})
+
+
 app.get('/', ((req, res) => {
     console.log('sending dogs')
 
@@ -21,8 +37,7 @@ app.get('/', ((req, res) => {
             console.log(error)
         }
         else{
-            const dataToSend = JSON.parse(data.toString());
-            res.json(dataToSend.dogs);
+            res.json(DOGS_OBJECT);
             res.end();
         }
     })
@@ -51,7 +66,9 @@ app.get('/owner/:id', ((req, res) => {
 }))
 
 app.post('/update', ((req, res) => {
-    console.log(req.body);
+    const changes = req.body;
+    console.log(changes);
+    updateDb(DOGS_OBJECT, changes)
     res.end()
 }))
 
