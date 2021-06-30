@@ -34,7 +34,7 @@ fs.readFile('./src/db/dogs.json', (error, data)=>{
         console.log('is the same day ' , checkIfSameDay(DOGS_OBJECT.date));
         if(checkIfSameDay(DOGS_OBJECT.date)){
 
-            // IS_SAME_DAY = true;
+            IS_SAME_DAY = true;
         }
         if(!IS_SAME_DAY){
             DOGS_OBJECT = resetDogState(DOGS_OBJECT);

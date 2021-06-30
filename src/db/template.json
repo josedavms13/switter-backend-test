@@ -1,22 +1,29 @@
-
 {
-"id": 0,
-"name": "donatella",
-"owner": "ana maria piñeros",
-"mode" :1,
-"state": 0,
-"recreations": {
-"daysAmount": 0,
-"dates": []
-},
-"training": {
-"daysAmount": 0,
-"dates": []
-},
-"kindergarten": {
-"isIn": false,
-"daysAmount": 0,
-"dates": []
-},
-"extraItems": []
-},
+  "template":
+    {
+      "date": "Wed Jun 30 2021"
+    },
+    "dogs": [
+      {
+      "id": 0,
+      "name": "donatella",
+      "owner": "ana maria piñeros",
+      "mode": 1,
+      "state": 0,
+      "recreations": {
+        "daysAmount": 0,
+        "dates": []
+      },
+      "training": {
+        "daysAmount": 0,
+        "dates": []
+      },
+      "kindergarten": {
+        "isIn": false,
+        "daysAmount": 0,
+        "dates": []
+      },
+      "extraItems": []
+    },
+  ]
+}
